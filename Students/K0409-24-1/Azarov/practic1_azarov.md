@@ -3,7 +3,7 @@
 ## Блок 1 - namespaces
 
 Требуется просмотреть namespace-ы текущего shell-процесса. Это делается командой "ls -la /proc/$$/ns/"
-![alt text](<Students/K0409-24-1/Azarov/images/Screenshot from 2026-03-24 23-50-01.png>)
+![alt text](https://github.com/Dubrovsky18/SiriusK8s/Students/K0409-24-1/images/Screenshot from 2026-03-24 23-50-01.png)
 
 Описание namespace-ов:
 
