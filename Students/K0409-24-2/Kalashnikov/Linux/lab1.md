@@ -2,3 +2,7 @@
 
 *Ссылка на лабу:*
 https://asciinema.org/a/pq2ZNAG5iZ9PunPt
+
+команда получилась: cat access.log | sort | uniq -c | sort | tail | sort -r | cut d ' ' -f 8
+
+выводит просто айпишники, если в cut написать диапозон то можно с количеством запросов для каждого айпишника

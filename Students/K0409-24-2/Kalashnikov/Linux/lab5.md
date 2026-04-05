@@ -1,0 +1,4 @@
+**https://asciinema.org/a/1hY6i51yocEtGpJ4**
+
+
+В ходе работы был запущен скрипт sudo bash /home/user/SiriusK8s/PRACTIC/BREAK/break_lab/05_systemd_break.sh, который создал падающий systemd unit script-server.service. Командой sudo systemctl status script-server установлено, что процесс завершается с ошибкой code=exited, status=1/FAILURE. Просмотр логов через sudo journalctl -u script-server -b --no-pager показал бесконечный цикл перезапусков. При анализе скрипта /opt/break_lab/script_server.sh обнаружена строка exit 1, которая заставляла сервис завершаться с ошибкой. Через sudo nano значение изменено на exit 0. После выполнения sudo systemctl daemon-reload и sudo systemctl restart script-server.service сервис успешно запустился и перестал падать.

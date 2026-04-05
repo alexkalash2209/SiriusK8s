@@ -1,0 +1,4 @@
+**https://asciinema.org/a/MtQiDA0tbEysJM8w**
+
+
+В ходе работы был запущен скрипт поломки sudo bash /home/user/SiriusK8s/PRACTIC/BREAK/break_lab/02_network_break.sh, после чего пропало сетевое соединение. Для диагностики выполнена команда ip route, которая показала отсутствие маршрута по умолчанию. Маршрут добавлен вручную через sudo ip route add default via 192.168.38.2 dev ens160. Далее проверен файл /etc/resolv.conf, в котором вместо корректных DNS-серверов содержалась некорректная запись, исправлено на nameserver 8.8.8.8 и nameserver 1.1.1.1 через sudo nano /etc/resolv.conf. Затем проверен файл /etc/nsswitch.conf, где в строке hosts: отсутствовало dns, добавлено: hosts: files dns. После всех исправлений выполнена проверка: ping -c 3 8.8.8.8 (связь по IP работает), ping -c 3 google.com (DNS резолвится корректно), curl -I --max-time 10 https://www.avito.ru (сайт доступен). Сетевое подключение полностью восстановлено.

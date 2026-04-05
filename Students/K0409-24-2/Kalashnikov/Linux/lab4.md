@@ -1,0 +1,4 @@
+**https://asciinema.org/a/fFIL82fmskuTlSms**
+
+
+В ходе работы был запущен скрипт sudo bash /home/user/SiriusK8s/PRACTIC/BREAK/break_lab/04_binary_break.sh, который создал в /opt/break_lab пять проблемных файлов. Командой ls -la установлено, что у файла mystery_no_exec отсутствует право на выполнение, добавлено через sudo chmod +x, после чего файл успешно запущен. Файл not_a_binary командой file определён как текстовый, а не бинарный, запуск невозможен. Файл mystery_bad_interpreter содержал неверный shebang #!/bin/no_such_interpreter_break_lab, исправлен через sudo nano на #!/bin/bash, после чего запустился и вывел never. Файл mystery_truncated_elf командой file и readelf -h определён как усечённый ELF с повреждёнными заголовками, восстановлению не подлежит.
